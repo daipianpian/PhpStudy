@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14.html</title>
+	<link rel="stylesheet" href="css/basic.css">
+	<script>
+	function t(){
+		var div = document.getElementsByTagName('div')[0];
+		if(div.className.indexOf('test1')>=0){
+			div.className = 'test2';
+		}else{
+			div.className = 'test1';
+		}
+
+		div.style.width = parseInt(div.style.width) + 5 +'px';
+		div.style.height = parseInt(div.style.height) + 5 + 'px';
+		div.style.borderBottomWidth = parseInt(div.style.borderBottomWidth) + 1 + 'px';
+	}
+	</script>
+</head>
+<body>
+	<div class="test1" onclick="t()" style="width:300px; height:300px;border-bottom:1px solid #ccc;">
+		点击div，使其背景色红绿交替
+		宽高增加5px
+		下边框增粗1px
+	</div>
+</body>
+</html>
