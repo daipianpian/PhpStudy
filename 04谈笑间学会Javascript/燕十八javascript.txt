@@ -1,0 +1,508 @@
+
+
+alert(kkk.currentStyle.height);  ie获取css样式表的方法
+getComputedStyle    火狐获取css样式表的方法
+ 
+1:理解变量名,变量存储地址,变量值的概念
+答:变量名--代表-->变量的内存地址.
+alert(变量名) ---> 根据变量名->找到地址->从地址读出值
+
+2:传递赋值与引用赋值的区别?
+答:如果是传递赋值  a = b, 
+给a分配地址,读出b的值,把b值存到a的内存地址上.
+这样,修改a,b,互不影响对方.
+
+如果是引用赋值a = b;
+其实是声明一个变量a,并且变量a的地址也指向b的内存地址.
+
+所以,修改a,b会同样影响对方,
+但是删除,a,b不会影响对方.
+
+(信用卡有主卡,有副卡,主卡刷卡,副卡也能看到影响;副卡刷也同理)
+但是如果主卡,或者副卡有一张丢了,另一张还能正常使用.
+
+
+3:js中哪些数据类型是引用赋值的?
+答:在php中, 可以明确的用 $a = &$b,在地址前加&符来声明引用赋值.
+但是在js中, 数组,对象,函数是默认引用赋值,其他是传递赋值.
+我们改变不了.
+
+4:回答js中的5种数据基本类型与复合类型
+答:Number,String,Boolean, null,undefined
+数组,对象,函数
+
+5:html引入js的方法
+答:在页面中引入
+<script type="text/javascript">
+</script>
+
+2:把js脚本单独写在一个.js结尾的文件中,
+<script type="text/javascript" src="xxxx.js"></script>
+
+6:js的单行,多行注释的写法
+
+// 这是单行注释
+
+/*
+这是多行注释
+*/
+
+
+7:变量名的命名规范
+答:由数字,字母,下划线,$符组成,但是首字符不能是数字.
+同时注意:不能和关键字冲突.
+
+document.write(在屏幕上输出)
+alert (弹出对话框)
+function grow() {
+	var age = document.getElementByid('id').value;
+	age = parseint(age);//把age字符串分析成整型来处理
+	ag += 1;//
+	alert('你已经' + document.getElementByid('id').value + '岁，但吹完蜡烛就大了一岁' );
+	document.getElementByid(ag).value = ++age;
+}
+
+switch判断的是 表达式 ==（case后的值）N
+碰到需要比较范围的 用switch不适合，应该用if/else if
+例如：age>=0 && age<=3, age>4 && age<=10, age>10 && age<=16 
+
+
+镜然switch 比较的是值， 那么比较整型，字符串的场合比较合适；
+
+
+while 循环体 先判断，再执行；
+
+do  while  循环体
+
+do {
+	document.write(jfsdjkfl);
+}
+
+while(条件);先执行，在判断。
+ 
+节点 
+
+for循环 先判断表达式（条件）1 表达式（条件）2 表达式（条件）3 在执行语句   可以一个条件都不写
+例   for(var i = 50,j = 0; i >= 0;i--,j++) {
+		document.write(i + '--------' + j + "<br />");
+	}
+例2 	/*
+	for(var i = 50,j = 0; i >= 0;i--,j++) {
+		document.write(i + '--------' + j + "<br />");
+	}
+	
+	var i = 1;
+	for( ; i < 10; i++) {
+		document.write(i + "<br />");
+	}
+	
+	var i = 1;
+	for( ; i < 11; ) {
+		document.write(i + "<br />");
+		i++;
+	}
+	
+	var i = 1;
+	for( ;  ; ) {
+		if(i > 10) {
+			break;
+		}
+		document.write(i + "<br />");
+		i++;
+	}
+	*/
+	var i = 1;
+	while(true) {
+		if(i > 12) {
+			bresk;
+		}
+		document.write(i + "<br />");
+		i++;
+	}
+
+break 破坏的意思  破坏当前的循环；
+
+continue: 继续  单独跳过本次循环，大的循环并没有终止。
+
+函数 ：
+程序中的函数是指一段封装的代码段，能够完成特定功能
+
+函数的法 ：
+函数的用法分声明和调用；
+被调用的函数必须在页面内有声明过程。
+
+函数的声明语法： 
+
+function 函数名（[arg1][arg2][argn]）{
+	代码段运行
+	[return 返回值]
+}
+注：“可以有0-n个参数，但只有一个返回值”
+
+函数的调用语法
+函数名（[arg1][arg2][arg3]）;
+
+函数的返回值：
+函数可以有0个或1个返回值，没有其他情况；
+
+返回值给谁了？
+返回值谁调用就给谁
+
+函数的执行权与执行权交回
+js代码由js引擎来解释执行 有几个js引擎同时工作呢？
+只有一个，单线程运行
+所以：指令只能一条一条来执行
+当函数被调用时，js解释引擎进入到函数内部去工作
+即执行权给了函数
+
+函数在两种情况下交回执行权：
+1：碰到return，执行权交回。
+2：如果没有return，函数的语句运行完毕后，执行权交回
+
+js中函数的特殊性
+
+在php中，函数是语法上的结构体，不是一个变量，不能被赋值；
+但在js中，函数也是变量
+
+js系统函数
+1 unescape() :解码
+2 isFinite() :判断一个数字是否为有限的
+3 isNaN() :判断一个变量是否为“非数字”
+4 parseFloat() :把字符串前缀的数字转成浮点型
+5 parselnt() :把字符串前缀的数字转点整型
+6 eval() :执行一段js代码
+
+6:函数的作用域:
+
+如果有多层的函数嵌套,
+那么内层函数如何寻找变量?
+从内向外寻找,以最近找到的为准.
+
+外层能否往里找到内层函数定义的变量? 答:不能.
+
+
+7:如果在内层函数,定义变量时,不用var ,而是 a = 3;
+此时,a在变局发挥作用.
+造成"全局污染"
+
+
+
+
+================数组=====================
+1:数组的概念
+数组就是一组有序号的变量的集合
+
+
+2:数组的创建方式:
+创建空数组:
+var arr = [];
+var arr = new Array();
+
+创建非空数组
+var arr = ['a','b','c'];
+var arr = new Array('a','b','c');
+
+如何创建一个有长度,但每个单元都没内容的数组?
+var arr = new Array(10);
+// new Array(arg),如果参数是整型 >=0 ,则把这个参数理解为数组长度.
+
+
+
+3:数组的索引特点
+数组的索引从0开始,
+数组的单元个数,就是数组长度,假设为N,
+索引最大值 是N-1;
+
+
+4: 数组单元值的读取:
+利用索引来读, arr[index], 例: arr[4];
+
+
+
+5:如何遍历数组, for, 索引与长度的关系,单元值的读取.
+思路:从0遍历到N-1,利用遍历中的值,做索引来读取每个单元的值.
+for(i=0,len=arr.length; i < len; i++) {
+	// arr[i]
+}
+
+对象探讨：
+数组是一组标号“有序”的变量集合
+
+创建一个对象：
+和创建一个数组用“[]”不一样,创建对象用“{}”
+和创建数组直接放置值不一样，创建对象时值前面还要加“属性”
+创建语法：{属性值1:值1,属性值2:值2,属性值3:值3,}
+
+对象单元值得引用：
+obj.属性
+或者obj['属性']；
+
+对象如何遍历？？？？
+for(per in stu) {
+	doument.write(stu[per]);
+}
+三除 delete stu.属性名;
+
+在js中，函数本身就是变量，而数组数组和对象存储的就是“变量”，
+对象的某个属性的值-----有没有可以是一个函数呢？？
+
+答：可以，对象的某个属性对应的值，可以使函数。
+如果是函数时呢这个属性往往也叫“方法”；
+如果对象的某个“方法”，需要调用自身的某个属性值，可以在函数中用一个关键词来代替“自己”这个对象；
+
+this----->  对象自身
+
+字符串对象的属性及方法
+concat 方法(string)连接两个或更多个字符串。
+indexOf(string)    返回出现字符串的位置
+substr(num1,[num2])截取字符串
+toLowercase()      转换成小写
+toUppercase()	   转换成大写
+replace(str1,str2) 字符串替换
+
+日期时间对象
+getYear()    返回月份2位
+getFullYear()返回年份4位
+getMonth()   返回月份 0-11
+getDate()    返回日期 1-31
+getDay()     返回星期数 0-6
+getHours()   返回小时数 0-23
+getMinutes() 返回分钟数 0-59
+getSeconds() 返回秒数 0-59
+getMilliseconds() 返回毫秒数 0-999
+
+内置对象： 
+日起对象类：Date（）
+var today = new Date();
+Date() 函数是所有日期时间对象的一个“抽象模板”，而today是通过Date（）造出来的一个对象。
+还有一个对象，是js已经创建完毕的，不必再new来得到。
+Math.random();
+
+Math.ceil();
+
+
+一篇文档全都是节点 head  body  div p “标签节点”；
+	id = abc “属性节点”；
+	《是个好人是否能  “文本节点》”；
+
+
+	document.getElementById "根据id来查找节点"；
+	document.getElementsByTagName  "根据标签来找节点"；
+	表单  document.getElementsByName  "根据name属性来查找节点";
+
+
+
+	如果没有查到自己想要的结果， 还可以根据前面已经找到的节点再次定位
+	继续查找
+
+	function t1（） {
+		var header = document.getElementById('header');
+		header.style.background = 'black(url)';width height;
+		header.childNodes,length;    《{header.childNodes,length;} w3c标准》
+	}
+	function t2() {
+	var header = document.getElementById('mleft');
+	mleft,children【】.length; 《{mleft,children【】.length;} 非w3c标准》
+	
+	}
+1 查找子元素：
+childNodes / children  [index(索引)]
+
+2 查找父元素：
+node.parentNode -------来获取父元素
+2.5 :firstChild,lastChild,
+3 :nextsibling  兄弟元素
+这4个元素受“空白”文本影响，建议不用  childrea[index(索引)] 建议使用 主流浏览器度支持;
+
+
+创造一个节点  和附加一个节点  一个节点加在定一个节点前面
+function t1() {
+		var de = document.createTextNode('得');
+		var nodeli = document.createElement('li');
+		nodeli.appendChild(de);
+		
+		var b = document.getElementById('qw');
+		var zhu = b.getElementsByTagName('ul')[0];
+		var yi = zhu.children[1];
+		
+		zhu.insertBefore(nodeli,yi);
+	克隆	
+	function t1() {
+		var qw = document.getElementById('qw');
+		var uln = qw.getElementsByTagName('ul')[0];
+		var newul = uln.cloneNode(true);
+		
+		var qe = document.getElementById('qe');
+		qe.appendChild(newul);
+		
+	}
+
+	创建一个节点   document.createElement();
+	创建一个文本节点  document.createTextNode();
+	给某元素追加一个子元素并插在最后  appendChild();
+	给某元素追加一个元素并放在某个元素前面 insertBfore(nodeli,yi)
+	克隆一个节点 cloneNode(true);
+	节点的替换 有一个新节点，一个旧节点，还要找到旧节点的父节点
+	父节点.replaceChild(新节点，旧节点);
+
+	innerHTML 属性直接插入html文档内
+
+	Dom事件
+	Dom事件就是指当前页面上发生某一件事的时候，激发么个函数，相当于“监听/触发设备”
+	
+	比如  onblur事件
+	表单被提交时， 用onsubmit 事件
+
+	Dom 事件如何声明？
+	1直接在元素标签中声明
+	<input type="text" onclick="fun();">
+	
+	onmousemove 鼠标移动时。
+	onmouseover 鼠标移到某元素之上。
+	onmousedown 鼠标按钮被按下时。
+	
+	onunload 用户退出页面。
+	onclick 按钮被点击时
+	onload 当页面加载时
+	onunload 当页面关闭时
+	onblur 元素失去焦时
+	onfocus 元素获得焦时
+	onsubmit 当表单被提交时
+	onreset 当表单重置时
+	onselect 但内容选中时
+	
+	
+	 
+
+
+属性 此事件发生在何时... 
+onabort 图像的加载被中断。
+onblur 元素失去焦点。
+onchange 域的内容被改变。
+onclick 当用户点击某个对象时调用的事件句柄。
+ondblclick 当用户双击某个对象时调用的事件句柄。 
+onerror 在加载文档或图像时发生错误。 
+onfocus 元素获得焦点。
+onkeydown 某个键盘按键被按下。
+onkeypress 某个键盘按键被按下并松开。 
+onkeyup 某个键盘按键被松开。 
+onload 一张页面或一幅图像完成加载。
+onmousedown 鼠标按钮被按下。 
+onmousemove 鼠标被移动。 
+onmouseout 鼠标从某元素移开。 
+onmouseover 鼠标移到某元素之上。
+onmouseup 鼠标按键被松开。
+onreset 重置按钮被点击。
+onresize 窗口或框架被重新调整大小。
+onselect 文本被选中。 
+onsubmit 确认按钮被点击。 
+onunload 用户退出页面。 
+鼠标 / 键盘属性
+属性 描述
+altKey 返回当事件被触发时，"ALT" 是否被按下。 
+button 返回当事件被触发时，哪个鼠标按钮被点击。 
+clientX 返回当事件被触发时，鼠标指针的水平坐标。 
+clientY 返回当事件被触发时，鼠标指针的垂直坐标。 
+ctrlKey 返回当事件被触发时，"CTRL" 键是否被按下。 
+metaKey 返回当事件被触发时，"meta" 键是否被按下。 
+relatedTarget 返回与事件的目标节点相关的节点。
+screenX 返回当某个事件被触发时，鼠标指针的水平坐标。 
+screenY 返回当某个事件被触发时，鼠标指针的垂直坐标。
+shiftKey 返回当事件被触发时，"SHIFT" 键是否被按下。
+
+
+
+
+
+
+javascript高级部分
+
+
+
+Ao------------作用域链指的是Ao链	
+	
+This---------是谁? this是指调用上下文
+针对函数的应用函数的应用场景来讨论
+函数的4种调用方式
+
+1:函数方式：
+this指向全局对象，window
+
+2:属性方式：
+this指代该对象(方法的属主);
+
+3:构造器方式
+通过new函数名() 来创建对象
+在js里构造函数与对象的关系比较松散
+对象就是'属性值的集合'
+构造器的作用，是造一个对象,把this指向该对象
+
+4:call,apply方式
+函数本身即是对象，对象就有方法
+函数名.call(对象，参数1,参数2,参数3)
+以fn.call(obj,'a','b');
+实际效果相当于
+1:fn内部的this指向了obj
+2:fn('a','b');
+3:Apply的效果与call一样，只不过传参时把所有参数
+包装在数组里传过去
+例fn.call(obj,a,b,c)------>fn.apply(obj,['a','b']);
+
+还有一种改变this的方法
+with 语句
+with(对象){
+	语句1
+	语句2
+。。。。
+}
+在with内部的语句，
+就把参数中的对象当成的上下文环境
+
+
+
+
+
+Arguments	
+	
+对于arguments和this，每个人函数都有自己的arguments和this，
+且不进行链式查找
+
+
+arguments 是什么？
+
+答：arguments 是收到的实参副本
+在词法分析中，首先按形参形成Ao的属性，值为undefined
+当实参传进来的时，在修改Ao的相应属性，
+并把收到的实参收集起来，放到arguments对象里
+t(a,b,c){};
+调用时t(1,2,3,4,5)个参数 
+此时，Ao属性只有a,b,c3个属性，arguments里有1,2,3,4,5 所有的值
+对于超出的形参个数之外的实参，可以通过arguments来获得
+arguments的索引从0,1,2开始递增,与实参数逐个对应
+arguments.length 属性代表实参个数
+
+arguments一定不是数组，是长的比较像数组的对象，也有length属性
+	arguments每个函数都会有，arguments只会在自己内部找
+	无法引用到外层函数的arguments
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
