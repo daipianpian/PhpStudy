@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{width: 200px;height: 200px;}
+		#test1{background-color: pink;}
+		#test2{background-color: lightgreen;}
+	</style>
+	<script>
+	function ch1(){
+		var test1 = document.getElementById('test1');
+			test1.id='test2';
+	}
+	</script>
+</head>
+<body>
+	<h1>特效是什么？</h1>
+	<div id="test1" onclick="ch1()"></div>
+</body>
+</html>

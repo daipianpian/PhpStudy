@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	function toggle(){
+		var test1 = document.getElementById('test1');
+		if(test1.src.indexOf('on') >= 0){
+			test1.src = 'off.gif';
+		}else{
+			test1.src = 'on.gif';
+		}
+	}
+	</script>
+</head>
+<body>
+	<img id="test1" src="on.gif" alt="" onclick="toggle()">
+</body>
+</html>
