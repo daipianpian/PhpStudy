@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14-1.html</title>
+	<style>
+	.test1{background: lightgreen;} .test2{background: skyblue;}
+	</style>
+	<script type="text/javascript">
+	function changeStyle(){
+		var div = document.getElementsByTagName('div')[0];
+
+		if(div.className.indexOf('test1') >= 0){
+			div.className = 'test2';
+		} else{
+			div.className = 'test1';
+		}
+
+		div.style.width = parseInt(div.style.width) + 5 + 'px';
+		div.style.height = parseInt(div.style.height) + 5 + 'px';
+		div.style.borderBottomWidth = parseInt(div.style.borderBottomWidth) + 3 + 'px';
+	}
+	</script>
+</head>
+<body>
+	<div class="test1" onclick="changeStyle()" style="width:300px;height:300px;border-bottom:1px solid #ccc;">
+		点击div，使其背景色红绿交替
+		宽高增加5px
+		下边框增粗1px
+	</div>
+</body>
+</html>
