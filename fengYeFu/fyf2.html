@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>JS分页Class - 风干的果子</title>
+    <style type="text/css">
+a {margin:3px; text-decoration:none;}
+</style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    //jquery页面加载开始
+$(function()
+{
+
+
+    var pageDiv1=new jsPage("list","all","p1","3");
+    pageMethod.call(pageDiv1);
+
+    var pageDiv2=new jsPage("list2","all","p2","5");
+    pageMethod.call(pageDiv2);
+})//$
+//jquery 页面加载结束
+//方法: pageMethod
+function pageMethod()
+{
+    var obj=this;
+    obj.resetTotal(); 
+    obj.reloadpage("1",obj.list_class);
+    obj.page(); //生成页码
+    ready2go.call(obj);
+}
+//方法:ready2go
+function ready2go()
+{
+    var obj=this;
+    $("#"+obj.page_obj_id+" a").live("click",function()
+    { //点击页码的时候跳到相应页   
+    obj.target_p=parseInt($(this).attr("p"));
+    gotopage.call(obj,obj.target_p);
+    })
+
+    
+}
+// 方法: showClass
+function showClass(list,x,pDiv,pSize){   
+    var pObj=new jsPage(list,x,pDiv,pSize);
+    pageMethod.call(pObj);
+}
+// 方法: jsPage
+function jsPage(list_id,list_class,page_obj_id,pagesize)
+{
+    // list_id 结果集UL的id
+    // list_class 要显示的类别
+    // page_id 存放页码的id
+// pagesize 每页显示多少条
+// QQ群号: 29032448
+    this.list_obj_id=list_id;
+    this.list_Obj=$("#"+list_id);
+    this.li=$("#"+list_id+" li");
+    this.li.hide();
+    this.page_obj_id=page_obj_id;
+    this.page_obj=$("#"+page_obj_id); //存放页码的div
+    this.list_class=list_class; // 类别      
+    if(list_class=="all")
+    {
+        this.results=this.li.length; // 总记录数等于所有记录
+    }
+    else
+    {
+       this.results=$("#"+list_id+" li."+list_class).length; // 总记录数等于指定类别的li数 
+    } 
+   
+    this.totalpage; // 总页数
+    this.pagesize=pagesize; //每页记录数
+    this.cpage=1; //当前页,默认显示第一页

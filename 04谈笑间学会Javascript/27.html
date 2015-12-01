@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25 事件 行为 结构相分离</title>
+	<style>
+	div{width: 300px;height: 100;border: 1px solid blue;}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<ul>
+				<li>好</li>
+			</ul>
+		</p>
+	</div>
+	<script>
+	/*
+	document.getElementsByTagName('div')[0].onclick = function (){
+		document.getElementsByTagName('div')[0].style.border = "1px solid red";
+	}
+	*/
+
+	document.getElementsByTagName('div')[0].onclick = function(){
+		this.style.border = "1px solid red";
+	}
+	</script>
+</body>
+</html>

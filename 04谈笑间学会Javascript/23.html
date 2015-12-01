@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>23 setTimout循环调用</title>
+    <script>
+        var clock = null;
+        function bang(){
+            var inp = document.getElementsByName('time')[0];
+            var time = parseInt(inp.value) - 1;
+            inp.value = time;
+
+            if(time == 0){
+                document.getElementsByTagName('img')[0].src = 'warn.jpg';
+                clearInterval(clock);
+            } else {
+                setTimeout('bang()' , 1000);
+            }
+        }
+
+        clock = setTimeout('bang()' , 1000);
+    </script>
+</head>
+<body>
+<h1>setTimeout实现每N秒执行一次</h1>
+<input type="button" name="time" value="5"/><br/>
+<img src="bom.jpg" alt="bom"/>
+</body>
+</html>
